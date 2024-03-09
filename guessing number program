@@ -1,0 +1,32 @@
+from random import*
+n=1
+k=100
+u=False
+z=True
+print('Загадайте любое число от 1 до 100.')
+while z:
+    r=(n+k)//2+randint(-3,3)
+    if r<n or r>k:
+        u=True
+    while u:
+        if r<n or r>k:
+            r=(n+k)//2+randint(-3,3)
+        u=False
+    print(f'Это число больше или равно {r}?')
+    v=input()
+    if v.upper()=="ДА":
+        print(f"Это число {r}?")
+        v = input()
+        if v.upper()=='ДА':
+            print('УРА! Я угадал!')
+            z=False
+        elif v.upper()=='НЕТ':
+            n=r
+        else:
+            print("Такой команды нет в моей базе команд, попробуйте снова.")
+    elif v.upper()=="НЕТ":
+        print('Понял.')
+        k=r
+    else:
+        print("Такой команды нет в моей базе команд, попробуйте снова.")
+print('Круто поиграли!')
